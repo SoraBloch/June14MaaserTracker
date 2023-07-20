@@ -5,10 +5,7 @@ import { Container, Typography, Box, Paper } from '@mui/material';
 const OverviewPage = () => {
     const [totalIncome, setTotalIncome] = useState();
     const [totalMaaser, setTotalMaaser] = useState();
-    const [maaserObligated, setMaaserObligated] = useState(0);
-    const [remainingMaaser, setRemainingMaaser] = useState(0);
-
-
+   
     useEffect(() => {
         const getData = async () => {
             await getTotalIncome();
@@ -29,21 +26,7 @@ const OverviewPage = () => {
         setTotalMaaser(data);
     }
 
-    const getMaaserObligated = () => {
-        const maaserObligated = totalIncome / 10;
-        setMaaserObligated(maaserObligated);
-    }
-
-    const getRemainingMaaser = () => {
-        const remainingMaaser = maaserObligated - totalMaaser;
-        console.log(remainingMaaser)
-        if (remainingMaaser < 0) {
-            setRemainingMaaser(0);
-        }
-        else {
-            setRemainingMaaser(remainingMaaser);
-        }
-    }
+ 
 
     return (
         <Container
